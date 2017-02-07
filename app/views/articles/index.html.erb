@@ -7,11 +7,21 @@
   <div class="row">
     <% @articles.each do |article| %>
     <div class="col-xs-12 col-sm-6 col-md-3">
-      <h3><%= article.title %></h3>
-      <p><%= link_to "See more", article_path(article) %></p>
-      <p><%= link_to "Edit", edit_article_path(article) %></p>
-      <p><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
-      </p>
+    <div class="article">
+      <div class="article-title">
+        <h3><%= article.title %></h3>
+      </div>
+      <div class="article-more">
+        <p><%= link_to "See more", article_path(article) %></p>
+      </div>
+      <div class="article-action">
+        <p><%= link_to "Edit", edit_article_path(article) %></p>
+      </div>
+      <div class="article-delete">
+        <p><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
+      </div>
+    </div>
     </div>
     <% end %>
   </div>
