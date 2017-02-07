@@ -1,6 +1,20 @@
-<h1>Welcome to Wikinimus</h1>
-<h2>Here are our articles:</h2>
+<div class="container">
+  <h1>Welcome to Wikinimus</h1>
+  <h2>Here are our articles:</h2>
+</div>
 
-<% @articles.each do |article| %>
-  <h3><%= article.title %></h3>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <h3><%= article.title %></h3>
+      <p><%= link_to "See more", article_path(article) %></p>
+      <p><%= link_to "Edit", edit_article_path(article) %></p>
+      <p><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Add an article", new_article_path %>
